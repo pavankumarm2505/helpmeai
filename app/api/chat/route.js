@@ -1,5 +1,5 @@
 import {NextResponse} from 'next/server'
-import OpenAI from 'openai-api'
+import OpenAI from 'openai'
 
 const systemPrompt = `You are an AI-powered customer support specialist. You will be given a customer inquiry, and you must generate a detailed and helpful response`
 
@@ -16,7 +16,7 @@ export async function POST(req, res) {
             content: systemPrompt
         },
     ...data,],
-    model: 'gpt-4o-mini',
+    model: 'gpt-4o',
     stream: true,
 });
 
@@ -27,7 +27,7 @@ export async function POST(req, res) {
                 for await (const chunk of completion){
                     const content= chunk.choices[0].delta?.content;
                     if(content){
-                        const text = encoder.endcode(content);
+                        const text = encoder.encode(content);
                         controller.enqueue(text);
                     }
                 }
