@@ -18,6 +18,7 @@ export async function POST(req, res) {
     ...data,],
     model: 'gpt-4o',
     stream: true,
+    max_tokens:100
 });
 
     const stream = new ReadableStream({
