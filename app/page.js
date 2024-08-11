@@ -18,7 +18,7 @@
 //       { role: 'user', content: message },  // Add the user's message to the chat
 //       { role: 'assistant', content: '' },  // Add a placeholder for the assistant's response
 //     ])
-
+  
 //     // Send the message to the server
 //     const response = fetch('/api/chat', {
 //       method: 'POST',
@@ -29,7 +29,7 @@
 //     }).then(async (res) => {
 //       const reader = res.body.getReader()  // Get a reader to read the response body
 //       const decoder = new TextDecoder()  // Create a decoder to decode the response text
-
+  
 //       let result = ''
 //       // Function to process the text from the response
 //       return reader.read().then(function processText({ done, value }) {
@@ -71,7 +71,7 @@
 //               <Box key= {index} display='flex' justifyContent={
 //                 message.role === 'assistant'? 'flex-start' : 'flex-end'
 //               }>
-//                 <Box
+//                 <Box 
 //                 bgcolor={
 //                   message.role === 'assistant'? 'primary.main' : 'secondary.main'
 //                 } color="white" borderRadius={16} p={3}>
@@ -95,7 +95,7 @@
 //       </Box>
 //   )
 // }
-"use client";
+'use client'
 import { Box, Button, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -113,11 +113,7 @@ export default function Home() {
   }
 
   const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      content:
-        "Hello! Welcome to HelpMeAI, I &apos the customer support assistant. How can I assist you today?",
-    },
+    {role: 'assistant', content: 'Hello! Welcome to HelpMeAI, I &apos the customer support assistant. How can I assist you today?'}
   ]);
   const [message, setMessage] = useState("");
 
