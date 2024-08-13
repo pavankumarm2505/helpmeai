@@ -8,7 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
   function Navbar() {
     const handleLogout = () => {
-      // Add logout functionality here
+      
       console.log('User logged out');
     };
     const [user] = useAuthState(auth)
